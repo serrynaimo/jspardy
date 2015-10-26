@@ -50,6 +50,10 @@ body {
     border-bottom-width: 10px;
 }
 
+#board .card {
+    cursor: pointer;
+}
+
 #board .card > span {
     color: gold;
     font-size: 3em;   
@@ -128,9 +132,19 @@ body {
     font-size: 2em;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
-#players .player h2 {
+#players .player > input {
+    background: transparent;
+    border: 0;
+    font-size: 1.5em;
+    font-family: Impact, 'Arial Black';
+    color: white;
+    text-shadow: 2px 2px darkblue;
+    text-align: center;
+    width: 90%;
+    outline: 0;
     position: relative;
     z-index: 3;
     margin: 0;
