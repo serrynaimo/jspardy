@@ -1,0 +1,122 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: blue;
+    color: white;
+    font-family: Impact, 'Arial Black';
+    text-shadow: 2px 2px darkblue;
+}
+
+#board {
+    flex: 7;
+    display: flex;
+    border: 5px solid darkblue;
+    position: relative;
+}
+
+#board .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+}
+
+#board .column:last-child {
+    border-right: 0;
+}
+
+#board .column .card:before {
+    content: "$";
+    font-size: 0.85em;
+}
+
+#board .column .card, #board .column .cardheader {
+    flex: 1;
+    border: 5px solid darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#board .column .cardheader {
+    font-size: 0.85em;
+    border-bottom-width: 10px;
+}
+
+#board .column .card {
+    color: gold;
+    font-size: 3em;   
+}
+
+#board .column .card.open {
+    background: red;
+}
+
+
+#players {
+    flex: 2;
+    display: flex;
+    border: 5px solid darkblue;
+    border-top: 0;
+}
+
+#players .player {
+    flex: 1;
+    border: 5px solid darkblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 2em;
+    position: relative;
+    overflow: hidden;
+}
+
+#players .player h2 {
+    position: relative;
+    z-index: 3;
+}
+
+#players .player:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: -50%;
+    width: 50%;
+    background: red;
+    transition: left .05s ease-in;
+}
+
+#players .player:after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    width: 50%;
+    background: red;
+    transition: right .05s ease-in;
+}
+
+#players .player.buzzed:before {
+    left: 0;
+}
+
+#players .player.buzzed:after {
+    right: 0;
+}
+
