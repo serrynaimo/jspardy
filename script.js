@@ -38,7 +38,12 @@ var onCardClick = function(e) {
         e.currentTarget.classList.add("open");
         blockBuzz = false;
         answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
-    }
+    
+        try {
+            document.querySelector(".buzzed").classList.remove("buzzed");
+        }
+        catch(e) {}
+        }
     
     Array.prototype.forEach.call(document.querySelectorAll("#players input"), function(input) {
         input.readOnly = true;
