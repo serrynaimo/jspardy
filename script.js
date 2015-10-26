@@ -9,7 +9,7 @@ var onKeyPress = function(e) {
 
 var onPlayerClick = function(e) {    
     if(e.currentTarget.classList.contains("buzzed")) {
-        e.currentTarget.children[1].textContent = e.currentTarget.children[1].textContent|0 + answerValue;
+        e.currentTarget.children[1].textContent = parseInt(e.currentTarget.children[1].textContent, 10) + answerValue;
         e.currentTarget.classList.remove("buzzed");
         answerValue = 0;
     }
@@ -34,10 +34,10 @@ var onCardClick = function(e) {
     else {
         var x = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2;
         var y = e.currentTarget.offsetTop + e.currentTarget.offsetHeight / 2;
-        e.currentTarget.children[1].style.transformOrigin = x + "px " + y + "px 0px";
+        e.currentTarget.children[2].style.transformOrigin = x + "px " + y + "px 0px";
         e.currentTarget.classList.add("open");
         blockBuzz = false;
-        answerValue = e.currentTarget.children[0].textContent|0;
+        answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
     }
 };
 
