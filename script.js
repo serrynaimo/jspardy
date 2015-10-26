@@ -39,6 +39,10 @@ var onCardClick = function(e) {
         blockBuzz = false;
         answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
     }
+    
+    Array.prototype.forEach.call(document.querySelectorAll("#players input"), function(input) {
+        input.readOnly = true;
+    });
 };
 
 var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
@@ -53,9 +57,9 @@ var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
 document.onkeypress = onKeyPress;
 
 Array.prototype.forEach.call(document.getElementById("players").childNodes, function(player) {
-  player.onclick = onPlayerClick;
+    player.onclick = onPlayerClick;
 });
 
 Array.prototype.forEach.call(document.querySelectorAll(".card"), function(card) {
-  card.onclick = onCardClick;
+    card.onclick = onCardClick;
 });
