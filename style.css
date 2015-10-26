@@ -17,6 +17,17 @@ body {
     text-shadow: 2px 2px darkblue;
 }
 
+#app:before {
+    content: "JSpardy!";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    font-size: 10em;
+    text-align: center;
+    opacity: .2;
+}
+
 #board {
     flex: 7;
     display: flex;
@@ -43,6 +54,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    transition: all .4s ease-in;
 }
 
 #board .cardheader {
@@ -50,9 +62,66 @@ body {
     border-bottom-width: 10px;
 }
 
+#board .cardheader > h1 {
+    display: none;
+}
+
+#board .cardheader.visible > h1 {
+    display: block;
+}
+
+#board .cardheader .big {
+    position: absolute;
+    top: 11.5vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 200px;
+    opacity: 0;
+    transform: scale(0.005);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.1);
+    transition: transform .5s ease-out, opacity .5s ease-in;
+    transform-origin: 50% 50%;
+}
+
+#board .cardheader .big > span {
+    font-size: 6em;
+}
+
+#board .cardheader.highlight .big {
+    opacity: 1;
+    transform: scale(1);
+}
+
 #board .card {
     cursor: pointer;
+    opacity: 0;
+    transition: opacity .5s ease-out;
 }
+
+#board .card:nth-child(3) {
+    transition-delay: .2s;
+}
+#board .card:nth-child(4) {
+    transition-delay: .4s;
+}
+#board .card:nth-child(5) {
+    transition-delay: .6s;
+}
+#board .card:nth-child(6) {
+    transition-delay: .8s;
+}
+#board .card:nth-child(7) {
+    transition-delay: 1s;
+}
+
+#board.start .card {
+    opacity: 1;
+}
+
 
 #board .card > span {
     color: gold;
