@@ -1,11 +1,5 @@
 var onPlayerClick = function(e) {
-    if(e.currentTarget.classList.contains("buzzed")) {
-       e.currentTarget.classList.remove("buzzed")
-       e.currentTarget.classList.add("done");     
-    }
-    else {
-        e.currentTarget.classList.add("done")
-    }
+    e.currentTarget.classList.toggle("buzzed");
 };
 
 var onCardClick = function(e) {
