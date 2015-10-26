@@ -25,6 +25,10 @@ var onPlayerClick = function(e) {
 var onCardClick = function(e) {
     if(e.currentTarget.classList.contains("open")) {
        e.currentTarget.classList.remove("open")
+       e.currentTarget.classList.add("show");     
+    }
+    else if(e.currentTarget.classList.contains("show")) {
+       e.currentTarget.classList.remove("show")
        e.currentTarget.classList.add("done");     
     }
     else {
@@ -33,7 +37,7 @@ var onCardClick = function(e) {
         e.currentTarget.children[1].style.transformOrigin = x + "px " + y + "px 0px";
         e.currentTarget.classList.add("open");
         blockBuzz = false;
-        answerValue = e.currentTarget.children[0].textContent;
+        answerValue = e.currentTarget.children[0].textContent|0;
     }
 };
 
