@@ -1,0 +1,25 @@
+{
+	"questions":[
+		{
+			"question":"Who is JavaScript",
+			"answere": "I am",
+			"category":"js_conf",
+			"points":"100",
+			"answered_by":"player1"
+		},
+		{
+			"question":"Who is JavaScript",
+			"answere": "I am",
+			"category":"js_conf",
+			"points":"200",
+			"answered_by":"player2"
+		},
+		{
+			"question":"Who is JavaScript",
+			"answere": "I am",
+			"category":"js_conf",
+			"points":"1000",
+			"answered_by":""
+		}
+	]
+}

@@ -1,5 +1,6 @@
 var blockBuzz = true,
     answerValue = 0,
+    questionsJson,
     introClick = 1;
 
 var onKeyPress = function(e) {
@@ -98,3 +99,18 @@ Array.prototype.forEach.call(document.getElementById("players").childNodes, func
 Array.prototype.forEach.call(document.querySelectorAll(".card"), function(card) {
     card.onclick = onCardClick;
 });
+
+loadQuestions();
+
+// Ajax
+function loadQuestions() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+        questionsJson = xhttp.responseText;
+    }
+  }
+  xhttp.open("GET", "data.json", true);
+  xhttp.send();
+}
+
