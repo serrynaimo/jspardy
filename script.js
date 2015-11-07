@@ -3,6 +3,7 @@ var blockBuzz = true,
     questionsJson,
     introClick = 1;
 
+
 var onKeyPress = function(e) {
     if(e.keyCode > 48 && e.keyCode < 52) {
         triggerPlayer(e.keyCode - 48);
@@ -10,29 +11,29 @@ var onKeyPress = function(e) {
 };
 
 var onDocumentClick = function(e) {
-    
+
     if(introClick == 1) {
         Array.prototype.forEach.call(document.querySelectorAll("#players input"), function(input) {
             input.readOnly = true;
         });
     }
-    
-    if(introClick < 7) {       
+
+    if(introClick < 7) {
         var elem = document.getElementById("column" + introClick).children[0];
-        
+
         if(elem.classList.contains("highlight")) {
             var x = elem.offsetLeft + elem.offsetWidth / 2;
             var y = elem.offsetTop - elem.offsetHeight / 2;
             elem.children[1].style.transformOrigin = x + "px " + y + "px 0px";
             elem.classList.remove('highlight');
             elem.classList.add('visible');
-            introClick++; 
+            introClick++;
         }
         else {
             document.getElementById("column" + introClick).children[0].classList.add('highlight');
         }
     }
-    
+
     if(introClick == 7) {
         setTimeout(function() {
             document.getElementById("board").classList.add("start");
@@ -41,7 +42,7 @@ var onDocumentClick = function(e) {
 
 };
 
-var onPlayerClick = function(e) {    
+var onPlayerClick = function(e) {
     if(e.currentTarget.classList.contains("buzzed")) {
         e.currentTarget.children[1].textContent = parseInt(e.currentTarget.children[1].textContent, 10) + answerValue;
         e.currentTarget.classList.remove("buzzed");
@@ -59,11 +60,11 @@ var onPlayerClick = function(e) {
 var onCardClick = function(e) {
     if(e.currentTarget.classList.contains("open")) {
        e.currentTarget.classList.remove("open")
-       e.currentTarget.classList.add("show");     
+       e.currentTarget.classList.add("show");
     }
     else if(e.currentTarget.classList.contains("show")) {
        e.currentTarget.classList.remove("show")
-       e.currentTarget.classList.add("done");     
+       e.currentTarget.classList.add("done");
     }
     else if(introClick >= 7) {
         var x = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2;
@@ -72,7 +73,7 @@ var onCardClick = function(e) {
         e.currentTarget.classList.add("open");
         blockBuzz = false;
         answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
-    
+
         try {
             document.querySelector(".buzzed").classList.remove("buzzed");
         }
