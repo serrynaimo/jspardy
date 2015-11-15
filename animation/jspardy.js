@@ -1,5 +1,6 @@
 var camera, scene, renderer;
 var tower, target;
+var start;
 
 init();
 animate();
@@ -74,6 +75,8 @@ function init() {
 	scene.add(m3);
 	scene.add(m4);
 
+	start = Date.now();
+
 
 	target = new THREE.Vector3();
 
@@ -121,8 +124,8 @@ function animate() {
 
 	requestAnimationFrame( animate );
 
-	var len = 4;
-	var time = (Date.now() / 1000) % len;
+	var len = 12;
+	var time = Math.min( (Date.now() - start) / 1000, len);
 	var k = time / len;
 
 	var d = (1 - k) * 1000 + 200;
