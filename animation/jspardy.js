@@ -1,17 +1,38 @@
 var camera, scene, renderer;
-var tower, target;
+var tower, target, light;
 var start;
+var SHADOW_MAP_WIDTH = SHADOW_MAP_HEIGHT = 512;
 
 init();
 animate();
 
+/*
+
+todo
+
+- skybox
+- mirror materials
+- lightcones
+- photos (with fader)
+- videos
+
+https://www.youtube.com/watch?v=Z1fMCYW3wYQ
+
+*/
+
+
+
 function makeText( material ) {
 
 	var text = new THREE.TextGeometry( 'JSPARDY', {
-		size: 60,
+		size: 50,
 		height: 20,
-		curveSegments: 2,
-		font: "helvetiker"
+		curveSegments: 8,
+		font: "helvetiker",
+
+		bevelThickness: 2,
+		bevelSize: 2,
+		bevelEnabled: true
 	});
 
 	text.computeBoundingBox();
@@ -33,7 +54,7 @@ function makeText( material ) {
 function makePlaneMesh( material ) {
 
 	var plane = new THREE.Mesh(
-		new THREE.PlaneBufferGeometry( 1000, 1000 ),
+		new THREE.PlaneBufferGeometry( 10000, 10000 ),
 		material
 	);
 	plane.position.y = 0;
@@ -48,32 +69,77 @@ function init() {
 	camera.position.y = 400;
 
 	scene = new THREE.Scene();
+	scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0025 );
 
 	var geometry = new THREE.BoxGeometry( 200, 1000, 200 );
-	var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0xffffff } );
+	var material = new THREE.MeshLambertMaterial( {  color: 0x0000ff } );
 
-	tower = new THREE.Mesh( geometry, material );
+
+	scene.add( new THREE.AmbientLight( 0x222222 ) );
+
+	light = new THREE.PointLight( 0xffffff );
+
+	scene.add( light );
+
+
+	light = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI / 2, 1 );
+	light.position.set( 0, 1500, 1000 );
+	light.target.position.set( 0, 0, 0 );
+
+	light.castShadow = true;
+
+	light.shadowCameraNear = 1200;
+	light.shadowCameraFar = 2500;
+	light.shadowCameraFov = 50;
+
+	//light.shadowCameraVisible = true;
+
+	light.shadowBias = 0.0001;
+
+	light.shadowMapWidth = SHADOW_MAP_WIDTH;
+	light.shadowMapHeight = SHADOW_MAP_HEIGHT;
+
+	scene.add( light );
+
+
+	toplight = new THREE.PointLight( 0xffffff );
+	toplight.position.y = 1000;
+
+	scene.add( toplight );
+
+	var textMaterial = new THREE.MeshPhongMaterial( { color: 0x0000ff, specular: 0xffffff } );
+
+	tower = new THREE.Mesh( geometry, textMaterial );
 	tower.position.y = 500;
+	tower.castShadow = true;
+	tower.receiveShadow = true;
 	scene.add( tower );
 
+	jspardyMesh = makeText( textMaterial );
+	jspardyMesh.castShadow = true;
+	jspardyMesh.receiveShadow = true;
 
-	jspardyMesh = makeText( material );
 	scene.add( jspardyMesh );
 
-	scene.add( makePlaneMesh( material ) );
+	var planeMaterial = new THREE.MeshPhongMaterial( { color: 0xffdd99 } );
+	var ground = makePlaneMesh( planeMaterial );
+	ground.castShadow = false;
+	ground.receiveShadow = true;
+	scene.add( ground );
 
-	var m1 = makePlaneMesh( material )
-	var m2 = makePlaneMesh( material )
-	var m3 = makePlaneMesh( material )
-	var m4 = makePlaneMesh( material )
-	m1.position.set(- 500, 0, 500)
-	m2.position.set( 500, 0, -500)
-	m3.position.set(- 500, 0, -500)
-	m4.position.set( 500, 0, 500)
-	scene.add(m1);
-	scene.add(m2);
-	scene.add(m3);
-	scene.add(m4);
+
+	// var m1 = makePlaneMesh( material )
+	// var m2 = makePlaneMesh( material )
+	// var m3 = makePlaneMesh( material )
+	// var m4 = makePlaneMesh( material )
+	// m1.position.set(- 500, 0, 500)
+	// m2.position.set( 500, 0, -500)
+	// m3.position.set(- 500, 0, -500)
+	// m4.position.set( 500, 0, 500)
+	// scene.add(m1);
+	// scene.add(m2);
+	// scene.add(m3);
+	// scene.add(m4);
 
 	start = Date.now();
 
@@ -83,6 +149,7 @@ function init() {
 	camera.up = new THREE.Vector3(0.2,1,0).normalize();
 
 	renderer = new THREE.WebGLRenderer();
+	renderer.setClearColor(0x111111);
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
@@ -139,6 +206,8 @@ function animate() {
 	target.y = easeInOut(k) * 1000;
 	camera.position.y = 100 + target.y;
 	camera.lookAt(target);
+
+	light.position.copy( camera.position );
 
 	renderer.render( scene, camera );
 
