@@ -166,17 +166,15 @@ function init() {
 	scene.add(logoMesh4);
 
 	logoMesh5 = makeLogoMesh( logo2, 960 / 3, 639 / 3 )
-	logoMesh5.position.set(0, 800, 201)
+	logoMesh5.position.set(0, 800, -201)
+	logoMesh5.rotation.y = Math.PI
 	scene.add(logoMesh5);
 
 	logoMesh6 = makeLogoMesh( logo3, 229, 98 )
-	logoMesh6.position.set(0, 800, -201)
-	logoMesh6.rotation.y = Math.PI
+	logoMesh6.position.set(0, 800, 201)
 	scene.add(logoMesh6);
 
-
 	start = Date.now();
-
 
 	target = new THREE.Vector3();
 
