@@ -6,22 +6,6 @@ var SHADOW_MAP_WIDTH = SHADOW_MAP_HEIGHT = 512;
 init();
 animate();
 
-/*
-
-todo
-
-- skybox
-- mirror materials
-- lightcones
-- photos (with fader)
-- videos
-
-https://www.youtube.com/watch?v=Z1fMCYW3wYQ
-
-*/
-
-
-
 function makeText( material ) {
 
 	var text = new THREE.TextGeometry( 'JSPARDY', {
@@ -63,19 +47,30 @@ function makePlaneMesh( material ) {
 
 }
 
+function makeLogoMesh( material, w, h ) {
+
+	var plane = new THREE.Mesh(
+		new THREE.PlaneBufferGeometry( w || 500, h || 500 ),
+		material
+	);
+
+	return plane
+
+}
+
 function init() {
 
 	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000 );
 	camera.position.y = 400;
 
 	scene = new THREE.Scene();
-	scene.fog = new THREE.FogExp2( 0xefd1b5, 0.0025 );
+	// scene.fog = new THREE.FogExp2( 0x1d91ef, 0.0015 );
 
-	var geometry = new THREE.BoxGeometry( 200, 1000, 200 );
+	var geometry = new THREE.BoxGeometry( 400, 1000, 400 );
 	var material = new THREE.MeshLambertMaterial( {  color: 0x0000ff } );
 
 
-	scene.add( new THREE.AmbientLight( 0x222222 ) );
+	scene.add( new THREE.AmbientLight( new THREE.Color(0.4, 0.4, 0.5) ) );
 
 	light = new THREE.PointLight( 0xffffff );
 
@@ -83,7 +78,7 @@ function init() {
 
 
 	light = new THREE.SpotLight( 0xffffff, 1, 0, Math.PI / 2, 1 );
-	light.position.set( 0, 1500, 1000 );
+	light.position.set( 0, 150, 100 );
 	light.target.position.set( 0, 0, 0 );
 
 	light.castShadow = true;
@@ -102,14 +97,16 @@ function init() {
 	scene.add( light );
 
 
-	toplight = new THREE.PointLight( 0xffffff );
+	toplight = new THREE.PointLight( new THREE.Color(0.9, 0.9, 1) );
 	toplight.position.y = 1000;
 
 	scene.add( toplight );
 
-	var textMaterial = new THREE.MeshPhongMaterial( { color: 0x0000ff, specular: 0xffffff } );
+	var textMaterial = new THREE.MeshPhongMaterial( { color: 0x000055, specular: 0xffffff } );
 
-	tower = new THREE.Mesh( geometry, textMaterial );
+	var towerMaterial = new THREE.MeshPhongMaterial( { color: 0x000033, specular: 0x999999, shininess: 10 } );
+
+	tower = new THREE.Mesh( geometry, towerMaterial );
 	tower.position.y = 500;
 	tower.castShadow = true;
 	tower.receiveShadow = true;
@@ -121,25 +118,62 @@ function init() {
 
 	scene.add( jspardyMesh );
 
-	var planeMaterial = new THREE.MeshPhongMaterial( { color: 0xffdd99 } );
-	var ground = makePlaneMesh( planeMaterial );
+	// var planeMaterial = new THREE.MeshPhongMaterial( { color: 0xffdd99 } );
+	var logo = new THREE.MeshPhongMaterial( {
+		color: 0xffffff,
+		map: THREE.ImageUtils.loadTexture( "jsconfasia.png" ),
+		side: THREE.DoubleSide
+	} );
+
+	var logo2 = new THREE.MeshBasicMaterial( {
+		color: 0xffffff,
+		map: THREE.ImageUtils.loadTexture( "groupphoto.jpg" ),
+		side: THREE.DoubleSide
+	} );
+
+	var logo3 = new THREE.MeshPhongMaterial( {
+		color: 0xffffff,
+		map: THREE.ImageUtils.loadTexture( "zz.png" ),
+		side: THREE.DoubleSide
+	} );
+
+
+	var ground = makePlaneMesh( logo );
 	ground.castShadow = false;
 	ground.receiveShadow = true;
 	scene.add( ground );
 
+	var distanceAway = 250;
+	var raise = 300;
 
-	// var m1 = makePlaneMesh( material )
-	// var m2 = makePlaneMesh( material )
-	// var m3 = makePlaneMesh( material )
-	// var m4 = makePlaneMesh( material )
-	// m1.position.set(- 500, 0, 500)
-	// m2.position.set( 500, 0, -500)
-	// m3.position.set(- 500, 0, -500)
-	// m4.position.set( 500, 0, 500)
-	// scene.add(m1);
-	// scene.add(m2);
-	// scene.add(m3);
-	// scene.add(m4);
+	logoMesh1 = makeLogoMesh( logo )
+	logoMesh1.position.set(0, raise, distanceAway)
+	scene.add(logoMesh1);
+
+	logoMesh2 = makeLogoMesh( logo )
+	logoMesh2.position.set(0, raise, -distanceAway)
+	logoMesh2.rotation.y = Math.PI
+	scene.add(logoMesh2);
+
+	logoMesh3 = makeLogoMesh( logo )
+	logoMesh3.position.set(-distanceAway, raise, 0)
+	logoMesh3.rotation.y = -Math.PI / 2
+	scene.add(logoMesh3);
+
+	logoMesh4 = makeLogoMesh( logo )
+	logoMesh4.position.set(distanceAway, raise, 0)
+	logoMesh4.rotation.y = Math.PI / 2
+	scene.add(logoMesh4);
+
+	logoMesh5 = makeLogoMesh( logo2, 960 / 3, 639 / 3 )
+	logoMesh5.position.set(0, 800, 201)
+	scene.add(logoMesh5);
+
+	logoMesh6 = makeLogoMesh( logo3, 229, 98 )
+	logoMesh6.position.set(0, 800, -201)
+	logoMesh6.rotation.y = Math.PI
+	scene.add(logoMesh6);
+
 
 	start = Date.now();
 
@@ -152,6 +186,10 @@ function init() {
 	renderer.setClearColor(0x111111);
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMap.enabled = true;
+	renderer.shadowMap.type = THREE.PCFShadowMap;
+
+
 	document.body.appendChild( renderer.domElement );
 
 	//
