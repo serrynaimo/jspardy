@@ -13,33 +13,63 @@ function onMIDIInit (midi){
     // midi.outputs
     // midi.sysexEnabled
     console.log("Successfully Initialized MIDI");
-    var foundString = "Found " + midi.inputs.size + " inputs and " + midi.outputs.size + " outputs.";
-    console.log(foundString);
-    console.log("Sysex is", midi.sysexEnabled ? "enabled" : "disabled");
-    onMIDIConect(midi);
+    // var foundString = "Found " + midi.inputs.size + " inputs and " + midi.outputs.size + " outputs.";
+    // console.log(foundString);
+    // console.log("Sysex is", midi.sysexEnabled ? "enabled" : "disabled");
+    
+    midi.outputs.forEach(function(output){
+      console.log("Output id:", output.id, output);
+      if (output.manufacturer === "Teensyduino"){
+        console.log("Found Teensy", output);
+        window.teensy = output;
+        output.open();
+      }
+    });
+    
+    midi.inputs.forEach(function(input){
+      onMIDIConect(input);
+    })
 
 
     midi.onstatechange = function(event){
-        console.log("MIDIConnectionEvent on port", event.port);
-        if (event.port.type === "input" && event.port.connection === "open"){
-            onMIDIConect(midi);
-        }
+      console.log("MIDIConnectionEvent on port", event.port);
+      if (event.port.type === 'input' && event.port.connection === "open"){
+        onMIDIConect(event.port);
+      }else if (event.port.type === 'output' && event.port.connection === "closed" && event.port.manufacturer === "Teensyduino"){
+        console.log("Found Teensy", event.port);
+        window.teensy = event.port;
+        event.port.open();
+      }
     }
 }
 
-function onMIDIConect(midi){
-
-    midi.inputs.forEach(function(input){
-        console.log("Input id:", input.id, input);
-        input.onmidimessage = function(event){
-            var midiMessage = midimessage(event);
-            console.log("Parsed", midiMessage);
-            triggerPlayer(midiMessage.channel);
-        }
-    });
+function onMIDIConect(input){
+  console.log("Input id:", input.id, input);
+  input.onmidimessage = function(event){
+    var midiMessage = MIDIMessage(event);
+    console.log("Parsed", midiMessage);
+  }
 }
 
 function onMIDIReject (error){
     console.error(error);
     return;
+}
+
+function makeMidiMsg(ch, state){
+	var controlByte = 0x01;
+	var stateByte = state ? 0x7F : 0x00;
+	var channelByte = 0xB0 + ch;
+	return [channelByte, controlByte, stateByte]
+}
+
+window.switchOnLED = function(ch){
+	if (window.teensy && typeof window.teensy.send === 'function'){
+		var channels = [0,1,2];
+		channels.forEach(function(thisCh){
+			window.teensy.send(makeMidiMsg(thisCh,thisCh === ch), window.performance.now())
+		});
+	}else{
+		console.log("couldn't find teensy", teensy);
+	}
 }
