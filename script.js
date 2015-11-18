@@ -3,7 +3,6 @@ var blockBuzz = true,
     questionsJson,
     introClick = 1;
 
-
 var onKeyPress = function(e) {
     if(e.keyCode > 48 && e.keyCode < 52) {
         triggerPlayer(e.keyCode - 48);
@@ -13,6 +12,7 @@ var onKeyPress = function(e) {
 var onDocumentClick = function(e) {
 
     if(introClick == 1) {
+        switchOnLED(null);
         Array.prototype.forEach.call(document.querySelectorAll("#players input"), function(input) {
             input.readOnly = true;
         });
@@ -47,11 +47,13 @@ var onPlayerClick = function(e) {
         e.currentTarget.children[1].textContent = parseInt(e.currentTarget.children[1].textContent, 10) + answerValue;
         e.currentTarget.classList.remove("buzzed");
         answerValue = 0;
+        switchOnLED(null);
     }
     else {
         try {
             document.querySelector(".buzzed").classList.remove("buzzed");
             blockBuzz = false;
+            switchOnLED(null);
         }
         catch(e) {}
     }
@@ -72,6 +74,7 @@ var onCardClick = function(e) {
         e.currentTarget.children[2].style.transformOrigin = x + "px " + y + "px 0px";
         e.currentTarget.classList.add("open");
         blockBuzz = false;
+        switchOnLED(null);
         answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
 
         try {
@@ -87,6 +90,7 @@ var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
     }
 
     blockBuzz = true;
+    switchOnLED(player_number-1);
     document.getElementById("player" + player_number).classList.add("buzzed");
 }
 

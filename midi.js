@@ -46,8 +46,9 @@ function onMIDIInit (midi){
 function onMIDIConect(input){
   console.log("Input id:", input.id, input);
   input.onmidimessage = function(event){
-    var midiMessage = MIDIMessage(event);
-    console.log("Parsed", midiMessage);
+    var channel = (event.data[0]-176)+1;
+    console.log("Parsed", channel);
+    triggerPlayer(channel);
   }
 }
 
@@ -64,6 +65,7 @@ function makeMidiMsg(ch, state){
 }
 
 window.switchOnLED = function(ch){
+  console.log('setting led', ch);
 	if (window.teensy && typeof window.teensy.send === 'function'){
 		var channels = [0,1,2];
 		channels.forEach(function(thisCh){
