@@ -12,7 +12,9 @@ var onKeyPress = function(e) {
 var onDocumentClick = function(e) {
 
     if(introClick == 1) {
-        switchOnLED(null);
+        try {
+            switchOnLED(null);
+        } catch(e) {}
         Array.prototype.forEach.call(document.querySelectorAll("#players input"), function(input) {
             input.readOnly = true;
         });
