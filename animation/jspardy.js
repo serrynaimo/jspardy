@@ -4,7 +4,8 @@ var start;
 var SHADOW_MAP_WIDTH = SHADOW_MAP_HEIGHT = 512;
 
 init();
-animate();
+
+setTimeout(animate, 1000);
 
 function makeText( material ) {
 
