@@ -76,14 +76,18 @@ var onCardClick = function(e) {
         e.currentTarget.children[2].style.transformOrigin = x + "px " + y + "px 0px";
         e.currentTarget.classList.add("open");
         blockBuzz = false;
-        switchOnLED(null);
         answerValue = parseInt(e.currentTarget.children[0].textContent, 10);
+
+        try {
+            switchOnLED(null);
+        }
+        catch(e) {}
 
         try {
             document.querySelector(".buzzed").classList.remove("buzzed");
         }
         catch(e) {}
-        }
+    }
 };
 
 var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
@@ -93,8 +97,9 @@ var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
 
     blockBuzz = true;
     document.getElementById('bsound').play();
-    switchOnLED(player_number-1);
     document.getElementById("player" + player_number).classList.add("buzzed");
+
+    switchOnLED(player_number-1);
 }
 
 document.onkeypress = onKeyPress;
