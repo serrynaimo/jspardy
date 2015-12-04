@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 0;
+    font-size: 1.3em
 }
 
 #app {
@@ -38,7 +39,7 @@ body {
 #board .column {
     flex: 1;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
 }
 
@@ -58,7 +59,7 @@ body {
 }
 
 #board .cardheader {
-    font-size: 0.85em;
+    font-size: 1em;
     border-bottom-width: 10px;
 }
 
@@ -125,7 +126,7 @@ body {
 
 #board .card > span {
     color: gold;
-    font-size: 3em;   
+    font-size: 3em;
 }
 
 #board .card > span:before {
@@ -148,6 +149,7 @@ body {
 
 #board .question > span {
     font-size: 4em;
+    font-family: "Georgia";
 }
 
 #board .answer {
@@ -167,6 +169,7 @@ body {
 
 #board .answer > span {
     font-size: 3em;
+    font-family: "Georgia";
 }
 
 #board .open .answer {
@@ -225,7 +228,7 @@ body {
     z-index: 3;
     display: block;
     color: gold;
-    font-size: 1.2em;  
+    font-size: 1.2em;
 }
 
 #players .player > span:before {

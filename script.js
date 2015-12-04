@@ -92,6 +92,7 @@ var triggerPlayer = function(player_number) { // player_numbers: 1, 2, 3
     }
 
     blockBuzz = true;
+    document.getElementById('bsound').play();
     switchOnLED(player_number-1);
     document.getElementById("player" + player_number).classList.add("buzzed");
 }
