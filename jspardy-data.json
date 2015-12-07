@@ -6,32 +6,38 @@
 				{ 
 					"value": 100,
 					"answer": "Besides his roles as former Mozilla CEO and CTO, he is the creator of JavaScript",
-					"question": "Who is Branden Eich?"
+					"question": "Who is Branden Eich?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
 					"answer": "It is the alternative name of this category that more than 80% of developers still use according to recent polls.",
-					"question": "What is ES6+?"
+					"question": "What is ES6+?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "It provides syntactic sugar for the construction of strings. It works similar to the string interpolation features in Perl or Python.",
+					"question": "What is a template literal?",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "It's a first class representation of a value that may be made available in the future and is a tool for asynchronous programming.",
+					"question": "What is a promise?",
+					"contentType": "text"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "Unlike traditional functions, this function shorthand makes the same lexical 'this' available as their surrounding code.",
+					"question": "What is an arrow?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "It's a function which can be exited/halted and later re-entered. Its context will be saved across re-entrances.",
+					"question": "What is a generator?",
+					"contentType": "text"
 				}
 			]
 		},
@@ -41,32 +47,38 @@
 				{
 					"value": 100,
 					"answer": "It's the new IE6.",
-					"question": "What is Safari?"
+					"question": "What is Safari?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
 					"answer": "Tables with specially crafted images in the corner cells where a frequent substitution for the lack of this popular CSS property in IE8.",
-					"question": "What is border-radius?"
+					"question": "What is border-radius?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "It is the name of the rendering engine that was first introduced with the release of Internet Explorer version 4.0 in October 1997 and was only just recently replaced with the new Edge Browser.",
+					"question": "What is Trident?",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "This is the name of the web real-time communications API only Microsoft Edge implemented so far, skipping over the existing co-existing standard pioneered by Google.",
+					"question": "What is ORTC?",
+					"contentType": "text"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "It's the name of Microsoft's new JavaScript engine for its Edge browser. It was open-sourced at JSConf US this morning.",
+					"question": "What is Chakra?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "This alternative rendering technique is used by IE for the sake of maintaining backward compatibility instead of strictly complying with W3C and IETF standards.",
+					"question": "What is quirks mode?",
+					"contentType": "text"
 				}
 			]
 		},
@@ -76,32 +88,38 @@
 				{
 					"value": 100,
 					"answer": "BackboneJS popularized this design pattern on the client-side in 2010.",
-					"question": "What is MVC?"
+					"question": "What is MVC?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
 					"answer": "Released in 2006 it's the one framework that heavily popularized JavaScript over the next years. An estimated 65% of websites still use it today.",
-					"question": "What is jQuery?"
+					"question": "What is jQuery?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "It was built as a result of the frustrations over working with CommonJS and with inspiration from similar projects like PEAR or CPAN in other languages.",
+					"question": "What is npm?",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "Scope management becomes the most complex job when maintaining growing codebasis of this popular framework.",
+					"question": "What is AngularJS?",
+					"contentType": "text"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "It is often compared with more complete frameworks such as Angular or Ember, although it focusses mainly on stateful DOM updates.",
+					"question": "What is ReactJS?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "He popularized the data format JSON and developed various JS tools such as JSHint and JSMin.",
+					"question": "https://www.youtube.com/embed/GRzLGFpxPjY?start=262",
+					"contentType": "youtube"
 				}
 			]
 		},
@@ -111,32 +129,38 @@
 				{
 					"value": 100,
 					"answer": "This city hosted the very first JSConf event here in the United States.",
-					"question": "Washington DC?"
+					"question": "Washington DC?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
 					"answer": "These are the four robotics events that started at JSConf.",
-					"question": "What are NodeBots, NodeCopter, NodeRockets and NodeBoats?"
+					"question": "What are NodeBots, NodeCopter, NodeRockets and NodeBoats?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "This JSPardy game was used as opening of JSConf.Asia in this Southeast Asian city last month.",
+					"question": "What is Singapore?",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "This game of subversive faux posting was started at JSConf US 2010.",
+					"question": "What is #poopin?",
+					"contentType": "text"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "It is the JSConf US location that Paul Irish rode a mechinal bull.",
+					"question": "What is Scottsdale AZ?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "It is the latest addition to the JSConf family of events and kicked off successfully in May this year in Europe.",
+					"question": "What is JSConf Budapest?",
+					"contentType": "text"
 				}
 			]
 		},
@@ -145,33 +169,39 @@
 			"cards": [
 				{
 					"value": 100,
-					"answer": "",
-					"question": ""
+					"answer": "It's used by our feline companions to control their body roll and direction during jumps.",
+					"question": "What is the cats tail?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
-					"answer": "",
-					"question": ""
+					"answer": "Elan Lee, Matthew Inman and Shane Small are the names of the creators of this card game that became the most funded Kickstarter campaign of all times.",
+					"question": "What is Exploding Kittens?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "What is world-domination?",
+					"question": "It is the ultimate plan of all cats and the main reason our furry friends created the internet.",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "Her gray-blue eyes have frowned on many and made her owner a millionaire.",
+					"question": "img/grumpycat.jpg",
+					"contentType": "picture"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "He composed the musical &quot;Cats&quot; based on &quot;Old Possum's Book of Practical Cats&quot; by T. S. Eliot which premiered in London in 1981.",
+					"question": "Who is Andrew Lloyd Webber?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "They are popular social hang-outs around Asia and the first if its kind in the US opened in Oakland in November 2014. Their success is largely attributed to social-media.",
+					"question": "What are cat-cafes?",
+					"contentType": "text"
 				}
 			]
 		},
@@ -180,33 +210,39 @@
 			"cards": [
 				{
 					"value": 100,
-					"answer": "",
-					"question": ""
+					"answer": "It's the capitol of the sunshine state since 1824.",
+					"question": "What is Tallahassee?",
+					"contentType": "text"
 				},
 				{
 					"value": 200,
-					"answer": "",
-					"question": ""
+					"answer": "Starting in the late 90's this location began to take the top spot as the #1 Spring Break location. From 2010-2015 an estimated 300,000 students traveled to this destination.",
+					"question": "Who is Panama City Beach?",
+					"contentType": "text"
 				},
 				{
 					"value": 300,
-					"answer": "",
-					"question": ""
+					"answer": "It is the largest city by population in the state of Florida and the largest city by area in the contiguous United States.",
+					"question": "What is Jacksonville?",
+					"contentType": "text"
 				},
 				{
 					"value": 400,
-					"answer": "",
-					"question": ""
+					"answer": "Florida's constitution establishes this state-wide income law that (unique among its kind) is adjusted for inflation annually.",
+					"question": "What is a minimum wage?",
+					"contentType": "text"
 				},
 				{
 					"value": 600,
-					"answer": "",
-					"question": ""
+					"answer": "The native american tribe of the Seminoles refers to the Everglades tropical wet lands with this word. It literally translated means &quot;Grassy Water&quot;.",
+					"question": "What is Pa-hay-okee?",
+					"contentType": "text"
 				},
 				{
 					"value": 800,
-					"answer": "",
-					"question": ""
+					"answer": "It is the third most spoken first language in Florida after English and Spanish.",
+					"question": "What is French Creole?",
+					"contentType": "text"
 				}
 			]
 		}
