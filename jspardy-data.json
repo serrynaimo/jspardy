@@ -1,0 +1,214 @@
+{
+	"categories": [
+		{
+			"name": "ES2015+",
+			"cards": [
+				{ 
+					"value": 100,
+					"answer": "Besides his roles as former Mozilla CEO and CTO, he is the creator of JavaScript",
+					"question": "Who is Branden Eich?"
+				},
+				{
+					"value": 200,
+					"answer": "It is the alternative name of this category that more than 80% of developers still use according to recent polls.",
+					"question": "What is ES6+?"
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		},
+		{
+			"name": "ES2015+",
+			"cards": [
+				{
+					"value": 100,
+					"answer": "It's the new IE6.",
+					"question": "What is Safari?"
+				},
+				{
+					"value": 200,
+					"answer": "Tables with specially crafted images in the corner cells where a frequent substitution for the lack of this popular CSS property in IE8.",
+					"question": "What is border-radius?"
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		},
+		{
+			"name": "Tools and Frameworks",
+			"cards": [
+				{
+					"value": 100,
+					"answer": "BackboneJS popularized this design pattern on the client-side in 2010.",
+					"question": "What is MVC?"
+				},
+				{
+					"value": 200,
+					"answer": "Released in 2006 it's the one framework that heavily popularized JavaScript over the next years. An estimated 65% of websites still use it today.",
+					"question": "What is jQuery?"
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		},
+		{
+			"name": "JSConf",
+			"cards": [
+				{
+					"value": 100,
+					"answer": "This city hosted the very first JSConf event here in the United States.",
+					"question": "Washington DC?"
+				},
+				{
+					"value": 200,
+					"answer": "These are the four robotics events that started at JSConf.",
+					"question": "What are NodeBots, NodeCopter, NodeRockets and NodeBoats?"
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		},
+		{
+			"name": "Cats",
+			"cards": [
+				{
+					"value": 100,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 200,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		},
+		{
+			"name": "Florida",
+			"cards": [
+				{
+					"value": 100,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 200,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 300,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 400,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 600,
+					"answer": "",
+					"question": ""
+				},
+				{
+					"value": 800,
+					"answer": "",
+					"question": ""
+				}
+			]
+		}
+	]
+}
