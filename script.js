@@ -123,7 +123,7 @@ function loadQuestions() {
         questionsJson = xhttp.responseText;
     }
   }
-  xhttp.open("GET", "data.json", true);
+  xhttp.open("GET", "jspardy-data.json", true);
   xhttp.send();
 }
 
